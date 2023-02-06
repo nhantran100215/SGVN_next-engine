@@ -9,6 +9,18 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <button onClick={async()=>{
+                const requestOption={
+                    method:"GET",
+                    headers: {
+                        "Content-type":"application/x-www-form-urlencoded"
+                    },
+                    body: JSON.stringify({ client_id:"LSDn54vGgz9qK3", redirect_uri:"https://192.168.3.80/"})
+                }
+                fetch('https://base.next-engine.org/users/sign_inclient_id=LSDn54vGgz9qK3&redirect_uri=https://192.168.3.80/')
+                .then(response => response.json())
+                .then(data => {console.log("data",data)});
+            }}>Get access token</button>
         <a
           className="App-link"
           href="https://reactjs.org"
